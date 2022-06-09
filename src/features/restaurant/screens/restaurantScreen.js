@@ -1,8 +1,8 @@
 import React from 'react';
 import { StatusBar, StyleSheet, Text, View, SafeAreaView, Platform } from 'react-native';
 
-// Components
-import { RestaurantInfoCardComponent } from '../components/RestaurantInfoCardComponent';
+// Custom Components
+import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
 
 // React native paper searchbar
 import { Searchbar } from 'react-native-paper';
@@ -15,7 +15,7 @@ export const RestaurantScreen = () => {
     </View>
   
     <View style={styles.list}>
-     <RestaurantInfoCardComponent />
+     <RestaurantInfoCard />
     </View>
    </SafeAreaView>
   )
