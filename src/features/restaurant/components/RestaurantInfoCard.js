@@ -7,16 +7,18 @@ import { Card } from 'react-native-paper';
 // Styled components
 import styled from 'styled-components/native';
 
-// Custom styled components
+// RestaurantCard styled component
 const RestaurantCard = styled(Card)`
 background-color: white;
 `;
 
+// RestaurantCardCover styled component
 const RestaurantCardCover = styled(Card.Cover)`
   background-color: white;
   padding: 20px;
 `;
 
+// Title styled component
 const Title = styled(Text)`
  padding: 16px;
  color: red;
