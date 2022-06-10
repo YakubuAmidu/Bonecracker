@@ -15,12 +15,12 @@ background-color: ${(props) => props.theme.colors.ui.quarternary};
 // RestaurantCardCover styled component
 const RestaurantCardCover = styled(Card.Cover)`
   background-color: ${(props) => props.theme.colors.ui.quarternary};
-  padding: ${(props) => props.theme.sizes[1]};
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 // Title styled component
 const Title = styled(Text)`
- padding: ${(props) => props.theme.sizes[1]};
+ padding: ${(props) => props.theme.space[3]};
  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
