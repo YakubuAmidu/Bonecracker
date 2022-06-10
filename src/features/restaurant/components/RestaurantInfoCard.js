@@ -21,7 +21,7 @@ const RestaurantCardCover = styled(Card.Cover)`
 // Title styled component
 const Title = styled(Text)`
  padding: 16px;
- color: red;
+ color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {}}) => {
@@ -40,7 +40,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
 
  return (
    <RestaurantCard>
-     <RestaurantCardCover source={{ uri: photos[0] }}/>
+     <RestaurantCardCover key={name} source={{ uri: photos[0] }}/>
 
      <Title>{name}</Title>
    </RestaurantCard>

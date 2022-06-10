@@ -1,13 +1,13 @@
-import { Colors } from './Colors';
+import { colors } from './Colors';
 import { fontWeights, fontSizes } from './Fonts';
-import { Sizes } from './Sizes';
-import { lineHeights, Space } from './Spacing';
+import { sizes } from './Sizes';
+import { lineHeights, space } from './Spacing';
 
-export const Theme = {
-  Colors,
+export const theme = {
+  colors,
   fontSizes, 
   fontWeights,
   lineHeights,
-  Space,
-  Sizes,
+  space,
+  sizes,
 };
