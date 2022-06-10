@@ -40,6 +40,12 @@ const Info = styled(View)`
  padding: ${(props) => props.theme.space[3]};
 `;
 
+const Rating = styled(View)`
+ padding-top: ${(props) => props.theme.space[2]};
+ padding-bottom: ${(props) => props.theme.space[2]};
+ flex-direction: row;
+`;
+
 export const RestaurantInfoCard = ({ restaurant = {}}) => {
   const { 
     name = "Some restaurant", 
@@ -55,7 +61,6 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
-  console.log(ratingArray);
 
  return (
    <RestaurantCard>
@@ -63,12 +68,14 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
      
      <Info>
      <Title>{name}</Title>
-
-     {
-       ratingArray.map((index) => (
-        <SvgXml xml={star} width={20} height={20} key={index}/>
+    
+    <Rating>
+    {
+       ratingArray.map(() => (
+        <SvgXml xml={star} width={20} height={20}/>
        ))
      }
+    </Rating>
 
      <Address>{address}</Address>
      </Info>
