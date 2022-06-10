@@ -9,17 +9,18 @@ import styled from 'styled-components/native';
 
 // RestaurantCard styled component
 const RestaurantCard = styled(Card)`
-background-color: ${(props) => props.theme.colors.ui.quarternary};
+background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
 // RestaurantCardCover styled component
 const RestaurantCardCover = styled(Card.Cover)`
-  background-color: ${(props) => props.theme.colors.ui.quarternary};
+  background-color: ${(props) => props.theme.colors.bg.primary};
   padding: ${(props) => props.theme.space[3]};
 `;
 
 // Title styled component
 const Title = styled(Text)`
+ font-family: ${(props) => props.theme.fonts.body};
  padding: ${(props) => props.theme.space[3]};
  color: ${(props) => props.theme.colors.ui.primary};
 `;
