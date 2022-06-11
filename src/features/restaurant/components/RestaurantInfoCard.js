@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 // Custom components
 import star from '../../../../assets/star';
+import open from '../../../../assets/open';
 
 // Svg
 import { SvgXml } from 'react-native-svg';
@@ -41,9 +42,21 @@ const Info = styled(View)`
 `;
 
 const Rating = styled(View)`
+ flex-direction: row;
  padding-top: ${(props) => props.theme.space[2]};
  padding-bottom: ${(props) => props.theme.space[2]};
+`;
+
+const Section = styled(View)`
  flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+`;
+
+const SectionEnd = styled(View)`
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {}}) => {
@@ -63,19 +76,36 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
  return (
-   <RestaurantCard>
+   <RestaurantCard elevation={5}>
      <RestaurantCardCover key={name} source={{ uri: photos[0] }}/>
      
      <Info>
      <Title>{name}</Title>
     
-    <Rating>
+
+   <Section>
+   <Rating>
     {
        ratingArray.map(() => (
-        <SvgXml xml={star} width={20} height={20}/>
+        <SvgXml xml={star} width={20} height={20} />
        ))
      }
     </Rating>
+    <SectionEnd>
+      {
+        isClosedTemporarily && (
+          <Text variant="label" style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>
+        )
+      }
+      <View style={{ paddingLeft: 16 }} />
+    {
+       isOpenNow && <SvgXml xml={open} width={20} height={20} />
+     }
+
+     <View style={{ paddingLeft: 16 }} />
+       <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+    </SectionEnd>
+   </Section>
 
      <Address>{address}</Address>
      </Info>
