@@ -4,6 +4,7 @@ import { View, Text, Image } from 'react-native';
 // Custom components
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
+import { SpacerComponent } from '../../../components/Spacer/SpacerComponent';
 
 // Svg
 import { SvgXml } from 'react-native-svg';
@@ -66,7 +67,9 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
       "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThERwRjXi7hXOYN-g_JSjSL-5J6O6aZsyJ1OxBWn_wWySzCt8Jy9Q6ngKuCH41ZouXtDo&usqp=CAU"
     ], 
-    icon, 
+    icon = [
+      "https://cdn.onlinewebfonts.com/svg/img_556082.png"
+    ], 
     address = "100 some street", 
     isOpenNow = true, 
     rating = 4, 
@@ -97,13 +100,13 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
           <Text variant="label" style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>
         )
       }
-      <View style={{ paddingLeft: 16 }} />
+      <SpacerComponent variant={"left.large"} />
     {
        isOpenNow && <SvgXml xml={open} width={20} height={20} />
      }
 
-     <View style={{ paddingLeft: 16 }} />
-       <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+     <SpacerComponent variant={"left.large"} />
+       <Image style={{ width: 15, height: 15 }} source={{ uri: icon[0] }} />
     </SectionEnd>
    </Section>
 
