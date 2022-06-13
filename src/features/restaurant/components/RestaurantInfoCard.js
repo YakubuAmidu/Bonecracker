@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { startTransition } from 'react';
 import { View, Text, Image } from 'react-native';
 
 // Custom components
@@ -90,7 +90,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
    <Rating>
     {
        ratingArray.map(() => (
-        <SvgXml xml={star} width={20} height={20} />
+        <SvgXml xml={star} width={20} height={20}/>
        ))
      }
     </Rating>
@@ -100,13 +100,15 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
           <Text variant="label" style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>
         )
       }
-      <SpacerComponent variant={"left.large"} />
-    {
+      <SpacerComponent position={"left"} size={"large"}>
+      {
        isOpenNow && <SvgXml xml={open} width={20} height={20} />
-     }
+      }
+      </SpacerComponent>
 
-     <SpacerComponent variant={"left.large"} />
+     <SpacerComponent position={"left"} size={"large"}>
        <Image style={{ width: 15, height: 15 }} source={{ uri: icon[0] }} />
+       </SpacerComponent>
     </SectionEnd>
    </Section>
 
