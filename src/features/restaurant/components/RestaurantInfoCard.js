@@ -1,10 +1,11 @@
-import React, { startTransition } from 'react';
-import { View, Text, Image } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
 // Custom components
 import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { SpacerComponent } from '../../../components/Spacer/SpacerComponent';
+import { Text } from '../../../components/Typography/TextComponent';
 
 // Svg
 import { SvgXml } from 'react-native-svg';
@@ -26,38 +27,42 @@ const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-// Title styled component
-const Title = styled(Text)`
- font-family: ${(props) => props.theme.fonts.heading};
- font-size: ${(props) => props.theme.fontSizes.body};
- color: ${(props) => props.theme.colors.ui.primary};
-`;
-
+// Address styled component
 const Address = styled(Text)`
  font-family: ${(props) => props.theme.fonts.body};
  font-size: ${(props) => props.theme.fontSizes.caption};
 `;
 
+// Info styled component
 const Info = styled(View)`
  padding: ${(props) => props.theme.space[3]};
 `;
 
+// Rating styled component
 const Rating = styled(View)`
  flex-direction: row;
  padding-top: ${(props) => props.theme.space[2]};
  padding-bottom: ${(props) => props.theme.space[2]};
 `;
 
+// Section styled component
 const Section = styled(View)`
  flex-direction: row;
  justify-content: space-between;
  align-items: center;
 `;
 
+// SectionEnd styled component
 const SectionEnd = styled(View)`
  flex-direction: row;
  align-items: center;
  justify-content: center;
+`;
+
+// Icon styled component
+const Icon = styled.Image`
+ width: 15px;
+ height: 15px;
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {}}) => {
@@ -83,7 +88,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
      <RestaurantCardCover key={name} source={{ uri: photos[0] }}/>
      
      <Info>
-     <Title>{name}</Title>
+     <Text variant={"label"}>{name}</Text>
     
 
    <Section>
@@ -97,7 +102,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
     <SectionEnd>
       {
         isClosedTemporarily && (
-          <Text variant="label" style={{ color: 'red' }}>CLOSED TEMPORARILY</Text>
+          <Text variant={"error"}>CLOSED TEMPORARILY</Text>
         )
       }
       <SpacerComponent position={"left"} size={"large"}>
@@ -107,7 +112,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
       </SpacerComponent>
 
      <SpacerComponent position={"left"} size={"large"}>
-       <Image style={{ width: 15, height: 15 }} source={{ uri: icon[0] }} />
+       <Icon source={{ uri: icon[0] }} />
        </SpacerComponent>
     </SectionEnd>
    </Section>

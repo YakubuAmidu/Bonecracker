@@ -32,7 +32,7 @@ const label = (theme) => `
  font-weight: ${theme.fontWeights.medium};
 `;
 
-const variants = () => {
+const variants = {
   body,
   hint,
   error,
