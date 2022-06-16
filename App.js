@@ -17,6 +17,7 @@ import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { theme } from './src/Infrastructure/Theme';
 import { RestaurantScreen } from "./src/Features/Restaurant/Screens/RestaurantScreen";
 import { SafeArea } from './src/components/Utility/SafeAreaComponent';
+import RestaurantRequest from './src/components/Services/Restaurants/RestaurantsServices';
 
 // ThemeProvider
 import { ThemeProvider } from 'styled-components/native';
