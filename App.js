@@ -13,6 +13,7 @@ import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 // Custom Components
 import { theme } from './src/Infrastructure/Theme';
 import { RestaurantScreen } from "./src/Features/Restaurant/Screens/RestaurantScreen";
+import { SafeArea } from './src/components/Utility/SafeAreaComponent';
 
 // ThemeProvider
 import { ThemeProvider } from 'styled-components/native';
@@ -21,11 +22,16 @@ import { ThemeProvider } from 'styled-components/native';
 const Tab = createBottomTabNavigator();
 
 const Settings = () => {
-  return <Text>Setting</Text>
+  return <SafeArea>
+        <Text>Settings</Text>
+        </SafeArea>
 };
 
 const Map = () => {
-  return <Text>Map</Text>
+  return <SafeArea>
+    <Text>Map</Text>
+    </SafeArea>
+
 }
 
 export default function App() {
