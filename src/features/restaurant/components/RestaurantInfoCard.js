@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { startTransition } from 'react';
 
 // Custom components
 import star from '../../../../assets/star';
@@ -48,7 +48,7 @@ export const RestaurantInfoCard = ({ restaurant = {}}) => {
    <Section>
    <Rating>
     {
-       ratingArray.map(() => (
+       ratingArray.map((id) => (
         <SvgXml xml={star} width={20} height={20}/>
        ))
      }
