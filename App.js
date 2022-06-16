@@ -24,6 +24,12 @@ import { ThemeProvider } from 'styled-components/native';
 
 const Tab = createBottomTabNavigator();
 
+const TAB_ICON = {
+  Restaurant: 'md-restaurant',
+  Map: 'md-map',
+  Settings: 'md-settings'
+};
+
 const Settings = () => {
   return <SafeArea>
         <Text>Settings</Text>
@@ -35,6 +41,15 @@ const Map = () => {
     <Text>Map</Text>
     </SafeArea>
 
+}
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+ return {
+   tabBarIcon: ({ size, color }) => (
+     <Ionicons name={iconName} size={size} color={color} />
+   ),
+ }
 }
 
 export default function App() {
@@ -54,23 +69,11 @@ export default function App() {
     <ThemeProvider theme={theme}>
     <NavigationContainer>
       <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName;
-
-          if(route.name === 'Restaurant'){
-            iconName = 'md-restaurant'
-          } else if(route.name === 'Map'){
-            iconName = 'md-map'
-          } else if(route.name === 'Settings'){
-            iconName = 'md-settings'
-          }
-
-          return <Ionicons name={iconName} size={size} color={color} />
-        },
+      screenOptions= {createScreenOptions}
+      tabBarOptions={{
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
-      })}
+      }}
       >
         <Tab.Screen name={"Restaurant"} component={RestaurantScreen}/>
         <Tab.Screen name={"Map"} component={Map}/>
