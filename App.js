@@ -2,6 +2,9 @@ import React from 'react';
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Text } from 'react-native';
 
+// Icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 // React navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -50,7 +53,25 @@ export default function App() {
     <>
     <ThemeProvider theme={theme}>
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          let iconName;
+
+          if(route.name === 'Restaurant'){
+            iconName = 'md-restaurant'
+          } else if(route.name === 'Map'){
+            iconName = 'md-map'
+          } else if(route.name === 'Settings'){
+            iconName = 'md-settings'
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />
+        },
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}
+      >
         <Tab.Screen name={"Restaurant"} component={RestaurantScreen}/>
         <Tab.Screen name={"Map"} component={Map}/>
         <Tab.Screen name={"Settings"} component={Settings} />
