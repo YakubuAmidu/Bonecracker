@@ -17,6 +17,7 @@ import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 import { theme } from './src/Infrastructure/Theme';
 import { RestaurantScreen } from "./src/Features/Restaurant/Screens/RestaurantScreen";
 import { SafeArea } from './src/components/Utility/SafeAreaComponent';
+import { RestaurantsContextProvider } from './src/components/Services/Restaurants/RestaurantsContext';
 
 // ThemeProvider
 import { ThemeProvider } from 'styled-components/native';
@@ -67,9 +68,10 @@ export default function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+      <RestaurantsContextProvider>
     <NavigationContainer>
       <Tab.Navigator
-      screenOptions= {createScreenOptions}
+      screenOptions={createScreenOptions}
       tabBarOptions={{
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
@@ -80,6 +82,7 @@ export default function App() {
         <Tab.Screen name={"Settings"} component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>
+    </RestaurantsContextProvider>
     </ThemeProvider>
 
     <ExpoStatusBar style="auto" />
