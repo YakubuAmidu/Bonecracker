@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 
 // Custom Components
 import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
@@ -9,6 +9,7 @@ import { RestaurantsContext } from '../../../components/Services/Restaurants/Res
 
 // React native paper searchbar
 import { Searchbar } from 'react-native-paper';
+import { ActivityIndicator, Colors } from 'react-native-paper';
 
 // Styled components
 import styled from 'styled-components/native';
@@ -23,6 +24,14 @@ export const RestaurantScreen = () => {
 
   return (
     <SafeArea>
+     {
+      isLoading && (
+        <View style={{ position: 'absolute', top: '50%', left: '50%' }}>
+          <ActivityIndicator size={50} style={{ marginLeft: -25 }} animating={true} color={Colors.blue300}/>
+        </View>
+      )
+     }
+
     <SearchContainer>
        <Searchbar />
     </SearchContainer>
