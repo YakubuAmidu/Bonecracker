@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList } from 'react-native';
 
 // Custom Components
 import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
@@ -19,6 +19,17 @@ const SearchContainer = styled.View`
  padding: ${(props) => props.theme.space[3]};
 `;
 
+// Loading
+const Loading = styled(ActivityIndicator)`
+ margin-left: - 25px;
+`;
+
+const LoadingContainer = styled.View`
+ pasition: absolute;
+ top: 50%;
+ left: 50%;
+`;
+
 export const RestaurantScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
@@ -26,9 +37,9 @@ export const RestaurantScreen = () => {
     <SafeArea>
      {
       isLoading && (
-        <View style={{ position: 'absolute', top: '50%', left: '50%' }}>
-          <ActivityIndicator size={50} style={{ marginLeft: -25 }} animating={true} color={Colors.blue300}/>
-        </View>
+        <LoadingContainer>
+          <Loading size={50} animating={true} color={Colors.blue300}/>
+        </LoadingContainer>
       )
      }
 
