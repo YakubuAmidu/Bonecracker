@@ -1,14 +1,18 @@
 import React, { useState, createContext, useEffect, useMemo } from 'react';
 
+// Imported custom components
 import { RestaurantsRequest, RestaurantsTransform } from './RestaurantsServices';
 
+// RestaurantsContext
 export const RestaurantsContext = createContext();
 
+// RestaurantContextProvider function
 export const RestaurantsContextProvider = ({ Children }) => {
   const [restaurants, setRetaurants] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+ 
+// retrieveRestaurants functions
   const retrieveRestaurants = () => {
     setIsLoading(true);
     setTimeout(() => {

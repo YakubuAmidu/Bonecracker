@@ -19,6 +19,7 @@ import {
 // Svg
 import { SvgXml } from 'react-native-svg';
 
+// RestaurantInfoCard function
 export const RestaurantInfoCard = ({ restaurant = {}}) => {
   const { 
     name = "Some restaurant", 

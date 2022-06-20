@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { FlatList } from 'react-native';
 
-// Custom Components
+// Imported custom Components
 import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
 import { SpacerComponent } from '../../../components/Spacer/SpacerComponent';
 import { SafeArea } from '../../../components/Utility/SafeAreaComponent';
 import { RestaurantsContext } from '../../../components/Services/Restaurants/RestaurantsContext';
 
-// React native paper searchbar
+// React native paper searchbar, ActivityIndicator, Colors
 import { Searchbar } from 'react-native-paper';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 
@@ -19,17 +19,19 @@ const SearchContainer = styled.View`
  padding: ${(props) => props.theme.space[3]};
 `;
 
-// Loading
+// Loading styled component
 const Loading = styled(ActivityIndicator)`
  margin-left: - 25px;
 `;
 
+// LoadingContainer styled component
 const LoadingContainer = styled.View`
  pasition: absolute;
  top: 50%;
  left: 50%;
 `;
 
+// RestaurantScreen function
 export const RestaurantScreen = () => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
