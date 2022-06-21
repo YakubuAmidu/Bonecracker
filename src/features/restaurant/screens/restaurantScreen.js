@@ -6,18 +6,13 @@ import { RestaurantInfoCard } from '../components/RestaurantInfoCard';
 import { SpacerComponent } from '../../../components/Spacer/SpacerComponent';
 import { SafeArea } from '../../../components/Utility/SafeAreaComponent';
 import { RestaurantsContext } from '../../../components/Services/Restaurants/RestaurantsContext';
+import { Search } from '../components/SearchComponent';
 
 // React native paper searchbar, ActivityIndicator, Colors
-import { Searchbar } from 'react-native-paper';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 
 // Styled components
 import styled from 'styled-components/native';
-
-// SearchContainer styled component
-const SearchContainer = styled.View`
- padding: ${(props) => props.theme.space[3]};
-`;
 
 // Loading styled component
 const Loading = styled(ActivityIndicator)`
@@ -45,9 +40,8 @@ export const RestaurantScreen = () => {
       )
      }
 
-    <SearchContainer>
-       <Searchbar />
-    </SearchContainer>
+    <Search />
+
      <FlatList 
      data={restaurants}
      renderItem={({ item }) => {

@@ -13,11 +13,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald';
 import { useFonts as useLato, Lato_400Regular } from '@expo-google-fonts/lato';
 
-// Custom Components
+//Imported Custom Components
 import { theme } from './src/Infrastructure/Theme';
 import { RestaurantScreen } from "./src/Features/Restaurant/Screens/RestaurantScreen";
 import { SafeArea } from './src/components/Utility/SafeAreaComponent';
 import { RestaurantsContextProvider } from './src/components/Services/Restaurants/RestaurantsContext';
+import { LocationContextProvider } from './src/components/Services/Location/LocationContext';
 
 // ThemeProvider
 import { ThemeProvider } from 'styled-components/native';
@@ -68,6 +69,7 @@ export default function App() {
   return (
     <>
     <ThemeProvider theme={theme}>
+      <LocationContextProvider>
       <RestaurantsContextProvider>
     <NavigationContainer>
       <Tab.Navigator
@@ -83,6 +85,7 @@ export default function App() {
       </Tab.Navigator>
     </NavigationContainer>
     </RestaurantsContextProvider>
+    </LocationContextProvider>
     </ThemeProvider>
 
     <ExpoStatusBar style="auto" />

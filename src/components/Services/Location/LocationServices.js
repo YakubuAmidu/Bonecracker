@@ -9,7 +9,7 @@ export const LocationRequest = (searchTerm) => {
     const locationMock = locations[searchTerm];
     if(!locationMock){
       reject('Not found...👎');
-    }else {
+    } else {
       resolve(locationMock);
     }
   });
